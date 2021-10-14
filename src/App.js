@@ -36,7 +36,7 @@ function App() {
   function handleOnDragEnd(result) {
     if (!result.destination) return;
 
-    const items = Array.from(characters);
+    const items = characters;
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
@@ -73,7 +73,9 @@ function App() {
                     </Draggable>
                   );
                 })}
-                {provided.placeholder}
+                <div style={{ visibility: "hidden" }}>
+                  {provided.placeholder}
+                </div>
               </ul>
             )}
           </Droppable>
